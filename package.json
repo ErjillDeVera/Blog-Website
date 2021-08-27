@@ -1,0 +1,24 @@
+{
+  "name": "blog-website",
+  "version": "1.0.0",
+  "description": "An application to create blogs for a day to day life. Used to practice my web development skills.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErjillDeVera/Blog-Website.git"
+  },
+  "author": "Erjill De Vera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErjillDeVera/Blog-Website/issues"
+  },
+  "homepage": "https://github.com/ErjillDeVera/Blog-Website#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
