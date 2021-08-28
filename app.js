@@ -43,11 +43,13 @@ app.post("/compose", function(req, res){
   res.redirect("/");
 });
 
-app.get("/posts/:postName", function(req,res){
-  console.log(req.params.postName);
+app.get("/post/:postName", function(req,res){
+  const requestedTitle = _.lowerCase(req.params.postName);
+
   posts.forEach(function(post) {
-    if( _.lowerCase(post.title) === _.lowerCase(req.params.postName)) {
-      console.log("Match Found");
+    const storedTitle = _.lowerCase(post.title);
+    if( requestedTitle === storedTitle) {
+      res.render("post", {post: post} );
     }
   });
 });
