@@ -4,6 +4,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 
+let posts = [];
+
 const homeStartingContent = "Hello, I'm Erjill and Welcome to my Blog!";
 const aboutContent = "I'm a Computer Science student, studying at Royal Holloway University of London! I'm creating this blog application to hone my web development skills!";
 const contactContent ="Email: Erjilldevera2001@gmail.com";
@@ -16,6 +18,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/", function(req, res){
+  for(var i = 0; i < posts.length; i++) {
+    console.log(posts[i]);
+  }
   res.render("home", {homeStartingContent: homeStartingContent});
 });
 
@@ -36,6 +41,8 @@ app.post("/compose", function(req, res){
     title: req.body.blogTitle,
     content: req.body.blogPost
   };
+  posts.push(post);
+  res.redirect("/");
 });
 
 app.listen(3000, function() {
