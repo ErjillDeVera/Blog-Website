@@ -6,8 +6,6 @@ const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 
-let posts = [];
-
 const homeStartingContent = "Hello, I'm Erjill and Welcome to my Blog!";
 const aboutContent = "I'm a Computer Science student, studying at Royal Holloway University of London! I'm creating this blog application to hone my web development skills!";
 const contactContent ="Email: Erjilldevera2001@gmail.com";
@@ -29,7 +27,12 @@ const postSchema = {
 const Post = mongoose.model("Post", postSchema);
 
 app.get("/", function(req, res){
-  res.render("home", {homeStartingContent: homeStartingContent, posts: posts});
+  Post.find({}, function(err, posts){
+    res.render("home", {
+      startingContent: homeStartingContent,
+      posts: posts
+    });
+  });
 });
 
 app.get("/about", function(req, res) {
