@@ -45,11 +45,11 @@ app.get("/compose", function(req, res) {
 });
 
 app.post("/compose", function(req, res){
-  const post = {
+  const post = new Post({
     title: req.body.blogTitle,
     content: req.body.blogPost
-  };
-  posts.push(post);
+  });
+  post.save();
   res.redirect("/");
 });
 
