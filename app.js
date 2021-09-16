@@ -26,6 +26,8 @@ const postSchema = {
   content: String
 };
 
+const Post = mongoose.model("Post", postSchema);
+
 app.get("/", function(req, res){
   res.render("home", {homeStartingContent: homeStartingContent, posts: posts});
 });
