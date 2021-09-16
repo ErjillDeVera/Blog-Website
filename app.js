@@ -21,6 +21,11 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
 
+const postSchema = {
+  title: String,
+  content: String
+};
+
 app.get("/", function(req, res){
   res.render("home", {homeStartingContent: homeStartingContent, posts: posts});
 });
